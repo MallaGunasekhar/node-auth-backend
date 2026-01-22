@@ -1,11 +1,14 @@
 
 import mysql from 'mysql2/promise'
 
+import dotenv from 'dotenv'
+dotenv.config()
+
 const db=mysql.createPool({
     host:'localhost',
     user:"root",
     password:"",
-    database:"auth_db",
+    database:process.env.DB_NAME,
     connectionLimit:10,
     queueLimit:50
 
