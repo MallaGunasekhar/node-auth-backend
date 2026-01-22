@@ -8,7 +8,7 @@ dotenv.config()
 
 // const multer = require('multer');
 
-import fs from 'fs'
+// import fs from 'fs'
 
 const PORT = process.env.PORT || 3000;
 const app=express();
