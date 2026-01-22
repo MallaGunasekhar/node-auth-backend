@@ -10,7 +10,8 @@ const router=express.Router();
 console.log('user routes loaded')
 
 
-router.post('/register',signupRateLimiter,createuser)
+router.post('/register',signupRateLimiter,createuser);
+
 
 
 export default router
