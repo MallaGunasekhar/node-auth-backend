@@ -15,6 +15,20 @@ export const findUserByname=async (username)=>{
   return rows[0]
 }
 
-export const addUser=()=>{
+export const addUser=async (username,email,password)=>{
+    console.log(username,email,password,'in modelll');
 
+    const insertQuery="INSERT INTO users (name,email,password) VALUES (?,?,?)";
+
+    const rows=await db.execute(insertQuery,[username,email,password])
+     console.log(rows)
+    return rows
+
+   
+}
+export const getuserWithEmail=async (email)=>{
+  const selectQuery="SELECT * FROM users WHERE email=?";
+  const [rows]=await db.execute(selectQuery,[email])
+
+  return rows[0]
 }

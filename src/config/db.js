@@ -39,7 +39,7 @@ async function testDB() {
   }
 }
 
-testDB();
+// testDB();
 
 
 export default db;

@@ -22,5 +22,4 @@ const createUsersTable = async () => {
 };
 
 createUsersTable();
-const [rows] = await db.query("DESCRIBE users");
-console.log(rows);
+

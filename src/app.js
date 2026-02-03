@@ -4,6 +4,7 @@ import cors from 'cors';
 import routes from './routes/route.js'
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
+import session from 'express-session'
 dotenv.config()
 
 // const multer = require('multer');
@@ -11,16 +12,28 @@ dotenv.config()
 // import fs from 'fs'
 
 const PORT = process.env.PORT || 3000;
-const app=express();
+const app = express();
 app.use(cors())
 app.use(express.json());
+app.use(
+  session({
+    name: 'my-session-id',
+    secret: 'session_secret_key',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 // 1 hour
+    }
+  })
+);
 
-app.use('/users',routes)
+app.use('/users', routes)
 
 
 
-app.listen(PORT,()=>{
-    console.log('server starts listening on port 3000')
+app.listen(PORT, () => {
+  console.log('server starts listening on port 3000')
 })
 
 

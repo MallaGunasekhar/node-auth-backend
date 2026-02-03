@@ -1,6 +1,6 @@
 import express from 'express';
 
-import {createuser} from '../controllers/controller.js'
+import {createuser,loginUser} from '../controllers/controller.js'
 
 
 import {signupRateLimiter} from '../middleWares/rateLimiter.js'
@@ -12,6 +12,6 @@ console.log('user routes loaded')
 
 router.post('/register',signupRateLimiter,createuser);
 
-
+router.post('/login',signupRateLimiter,loginUser);
 
 export default router
